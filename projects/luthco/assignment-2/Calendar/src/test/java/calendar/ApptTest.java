@@ -39,9 +39,189 @@ public class ApptTest {
 	 }
 
 	 @Test
-	  public void test02()  throws Throwable  {
+	  public void testIsValidHour()  throws Throwable  {
+		 int startHour=23;
+		 int startMinute=30;
+		 int startDay=15;
+		 int startMonth=01;
+		 int startYear=2018;
+		 String title="Birthday Party";
+		 String description="This is my birthday party.";
+		 //Construct a new Appointment object with the initial data	 
+		 Appt appt = new Appt(startHour,
+		          startMinute ,
+		          startDay ,
+		          startMonth ,
+		          startYear ,
+		          title,
+		         description);
 		 
+		 appt.setStartHour(24);
+		 assertFalse(appt.getValid());
 	 }
-//add more unit tests as you needed
+	 
+	 @Test
+	  public void testIsValidMinute()  throws Throwable  {
+		 int startHour=23;
+		 int startMinute=30;
+		 int startDay=15;
+		 int startMonth=01;
+		 int startYear=2018;
+		 String title="Birthday Party";
+		 String description="This is my birthday party.";
+		 //Construct a new Appointment object with the initial data	 
+		 Appt appt = new Appt(startHour,
+		          startMinute ,
+		          startDay ,
+		          startMonth ,
+		          startYear ,
+		          title,
+		         description);
+
+		 appt.setStartMinute(60);
+		 assertFalse(appt.getValid());
+	 }
+	  
+//	 @Test
+//	  public void testIsValidDay()  throws Throwable  {
+//		 int startHour=23;
+//		 int startMinute=30;
+//		 int startDay=15;
+//		 int startMonth=01;
+//		 int startYear=2018;
+//		 String title="Birthday Party";
+//		 String description="This is my birthday party.";
+//		 //Construct a new Appointment object with the initial data	 
+//		 Appt appt = new Appt(startHour,
+//		          startMinute ,
+//		          startDay ,
+//		          startMonth ,
+//		          startYear ,
+//		          title,
+//		         description);
+//		 
+//		 appt.setStartDay(50);
+//		 assertFalse(appt.getValid());
+//	 }
+	  
+//	 @Test
+//	  public void testIsValidMonth()  throws Throwable  {
+//		 int startHour=23;
+//		 int startMinute=30;
+//		 int startDay=15;
+//		 int startMonth=01;
+//		 int startYear=2018;
+//		 String title="Birthday Party";
+//		 String description="This is my birthday party.";
+//		 //Construct a new Appointment object with the initial data	 
+//		 Appt appt = new Appt(startHour,
+//		          startMinute ,
+//		          startDay ,
+//		          startMonth ,
+//		          startYear ,
+//		          title,
+//		         description);
+//		 
+//		 appt.setStartMonth(13);
+//		 assertFalse(appt.getValid());
+//	 }
+	  
+	 @Test
+	  public void testIsValidYear()  throws Throwable  {
+		 int startHour=23;
+		 int startMinute=30;
+		 int startDay=15;
+		 int startMonth=01;
+		 int startYear=2018;
+		 String title="Birthday Party";
+		 String description="This is my birthday party.";
+		 //Construct a new Appointment object with the initial data	 
+		 Appt appt = new Appt(startHour,
+		          startMinute ,
+		          startDay ,
+		          startMonth ,
+		          startYear ,
+		          title,
+		         description);
+		 
+		 appt.setStartYear(2020);
+		 assertTrue(appt.getValid());
+	 }
+	  
+	 @Test
+	  public void testIsValidDesc()  throws Throwable  {
+		 int startHour=23;
+		 int startMinute=30;
+		 int startDay=15;
+		 int startMonth=01;
+		 int startYear=2018;
+		 String title="Birthday Party";
+		 String description="This is my birthday party.";
+		 //Construct a new Appointment object with the initial data	 
+		 Appt appt = new Appt(startHour,
+		          startMinute ,
+		          startDay ,
+		          startMonth ,
+		          startYear ,
+		          title,
+		         description);
+		 
+		 appt.setDescription(null);
+		 assertEquals("", appt.getDescription());
+	 }
+	 
+	 @Test
+	  public void testCompareTo()  throws Throwable  {
+		 int startHour=23;
+		 int startMinute=30;
+		 int startDay=15;
+		 int startMonth=01;
+		 int startYear=2018;
+		 String title="Birthday Party";
+		 String description="This is my birthday party.";
+		 //Construct a new Appointment object with the initial data	 
+		 Appt appt1 = new Appt(startHour,
+		          startMinute ,
+		          startDay ,
+		          startMonth ,
+		          startYear ,
+		          title,
+		         description);
+		 
+		 Appt appt2 = new Appt(startHour,
+		          startMinute ,
+		          startDay ,
+		          startMonth ,
+		          startYear ,
+		          title,
+		         description);
+		 
+		 assertTrue(appt1.compareTo(appt2) == appt2.compareTo(appt1));
+	 }
+	 
+	 @Test
+	  public void testToString()  throws Throwable  {
+		 int startHour=23;
+		 int startMinute=30;
+		 int startDay=15;
+		 int startMonth=01;
+		 int startYear=2018;
+		 String title="Birthday Party";
+		 String description="This is my birthday party.";
+		 //Construct a new Appointment object with the initial data	 
+		 Appt appt = new Appt(startHour,
+		          startMinute ,
+		          startDay ,
+		          startMonth ,
+		          startYear ,
+		          title,
+		         description);
+
+		 assertTrue(appt.toString() != null);
+		 
+		 appt.setStartMinute(60);
+		 assertTrue(appt.toString() == null);
+	 }
+
 	
 }
