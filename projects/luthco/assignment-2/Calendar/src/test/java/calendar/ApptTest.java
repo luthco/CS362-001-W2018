@@ -104,27 +104,27 @@ public class ApptTest {
 //		 assertFalse(appt.getValid());
 //	 }
 	  
-//	 @Test
-//	  public void testIsValidMonth()  throws Throwable  {
-//		 int startHour=23;
-//		 int startMinute=30;
-//		 int startDay=15;
-//		 int startMonth=01;
-//		 int startYear=2018;
-//		 String title="Birthday Party";
-//		 String description="This is my birthday party.";
-//		 //Construct a new Appointment object with the initial data	 
-//		 Appt appt = new Appt(startHour,
-//		          startMinute ,
-//		          startDay ,
-//		          startMonth ,
-//		          startYear ,
-//		          title,
-//		         description);
-//		 
-//		 appt.setStartMonth(13);
-//		 assertFalse(appt.getValid());
-//	 }
+	 @Test
+	  public void testIsValidMonth()  throws Throwable  {
+		 int startHour=23;
+		 int startMinute=30;
+		 int startDay=15;
+		 int startMonth=01;
+		 int startYear=2018;
+		 String title="Birthday Party";
+		 String description="This is my birthday party.";
+		 //Construct a new Appointment object with the initial data	 
+		 Appt appt = new Appt(startHour,
+		          startMinute ,
+		          startDay ,
+		          startMonth ,
+		          startYear ,
+		          title,
+		         description);
+		 
+		 appt.setStartMonth(12);
+		 assertTrue(appt.getValid());
+	 }
 	  
 	 @Test
 	  public void testIsValidYear()  throws Throwable  {
@@ -217,10 +217,51 @@ public class ApptTest {
 		          title,
 		         description);
 
+		 appt.setStartHour(00);
+		 assertTrue(appt.toString() != null);
+		 
+		 appt.setStartHour(05);
 		 assertTrue(appt.toString() != null);
 		 
 		 appt.setStartMinute(60);
 		 assertTrue(appt.toString() == null);
+	 }
+	 
+	 @Test
+	  public void testRecuran()  throws Throwable  {
+		 int startHour=23;
+		 int startMinute=30;
+		 int startDay=15;
+		 int startMonth=01;
+		 int startYear=2018;
+		 String title="Birthday Party";
+		 String description="This is my birthday party.";
+		 //Construct a new Appointment object with the initial data	 
+		 Appt appt = new Appt(startHour,
+		          startMinute ,
+		          startDay ,
+		          startMonth ,
+		          startYear ,
+		          title,
+		         description);
+		 
+		 appt.setRecurrence(null, 2, 2, 2);
+		 int[] arrayw = new int[1];
+		 arrayw[0] = 0;
+		 
+		 assertTrue(appt.getRecurNumber() == 2);
+		 assertTrue(appt.getRecurIncrement() == 2);
+		 assertTrue(appt.getRecurBy() == 2);
+		 //assertTrue(appt.getRecurDays() == arrayw);
+		 
+		 int[] arrayy = new int[3];
+		 arrayy[0] = 1;
+		 arrayy[1] = 2;
+		 arrayy[2] = 3;
+		 
+		 appt.setRecurrence(arrayy, 2, 2, 2);
+		 assertTrue(appt.getRecurDays() == arrayy);
+		 
 	 }
 
 	
