@@ -36,7 +36,6 @@ public class ApptTest {
  	 	 assertEquals(24, appt.getStartHour());
      assertEquals(65, appt.getStartMinute());
      assertEquals(0, appt.getStartDay());
-     //assertEquals(13, appt.getStartMonth());
      assertEquals(2000, appt.getStartYear());
      assertEquals("title", appt.getTitle());
      assertEquals("description", appt.getDescription());
@@ -65,7 +64,6 @@ public class ApptTest {
 		 assertFalse(appt.getValid());
 
 		 appt.setStartDay(20);
-		 //appt.setStartMonth(22);
 		 assertFalse(appt.getValid());
 
 		 appt.setStartHour(-1);
@@ -75,149 +73,8 @@ public class ApptTest {
 		 assertTrue(appt.getValid());
 
 		 appt.setStartHour(23);
-		 //assertFalse(appt.getValid());
 	 }
 
-// 	 @Test
-// 	  public void testIsValidHour()  throws Throwable  {
-// 		 int startHour=23;
-// 		 int startMinute=30;
-// 		 int startDay=15;
-// 		 int startMonth=01;
-// 		 int startYear=2018;
-// 		 String title="Birthday Party";
-// 		 String description="This is my birthday party.";
-// 		 //Construct a new Appointment object with the initial data
-// 		 Appt appt = new Appt(startHour,
-// 		          startMinute ,
-// 		          startDay ,
-// 		          startMonth ,
-// 		          startYear ,
-// 		          title,
-// 		         description);
-//
-// 		 appt.setStartHour(24);
-// 		 assertFalse(appt.getValid());
-// 	 }
-//
-// 	 @Test
-// 	  public void testIsValidMinute()  throws Throwable  {
-// 		 int startHour=23;
-// 		 int startMinute=30;
-// 		 int startDay=15;
-// 		 int startMonth=01;
-// 		 int startYear=2018;
-// 		 String title="Birthday Party";
-// 		 String description="This is my birthday party.";
-// 		 //Construct a new Appointment object with the initial data
-// 		 Appt appt = new Appt(startHour,
-// 		          startMinute ,
-// 		          startDay ,
-// 		          startMonth ,
-// 		          startYear ,
-// 		          title,
-// 		         description);
-//
-// 		 appt.setStartMinute(60);
-// 		 assertFalse(appt.getValid());
-//
-// 		 appt.setStartMinute(30);
-// 		 assertTrue(appt.getValid());
-// 	 }
-//
-// //	 @Test
-// //	  public void testIsValidDay()  throws Throwable  {
-// //		 int startHour=23;
-// //		 int startMinute=30;
-// //		 int startDay=15;
-// //		 int startMonth=01;
-// //		 int startYear=2018;
-// //		 String title="Birthday Party";
-// //		 String description="This is my birthday party.";
-// //		 //Construct a new Appointment object with the initial data
-// //		 Appt appt = new Appt(startHour,
-// //		          startMinute ,
-// //		          startDay ,
-// //		          startMonth ,
-// //		          startYear ,
-// //		          title,
-// //		         description);
-// //
-// //		 appt.setStartDay(50);
-// //		 assertFalse(appt.getValid());
-// //	 }
-//
-// 	 @Test
-// 	  public void testIsValidMonth()  throws Throwable  {
-// 		 int startHour=23;
-// 		 int startMinute=30;
-// 		 int startDay=15;
-// 		 int startMonth=01;
-// 		 int startYear=2018;
-// 		 String title="Birthday Party";
-// 		 String description="This is my birthday party.";
-// 		 //Construct a new Appointment object with the initial data
-// 		 Appt appt = new Appt(startHour,
-// 		          startMinute ,
-// 		          startDay ,
-// 		          startMonth ,
-// 		          startYear ,
-// 		          title,
-// 		         description);
-//
-// 		 appt.setStartMonth(2);
-// 		 assertTrue(appt.getValid());
-//      //
-// 		 // appt.setStartMonth(-2);
-// 		 // assertTrue(appt.getValid());
-//
-// 	 }
-//
-// 	 @Test
-// 	  public void testIsValidYear()  throws Throwable  {
-// 		 int startHour=23;
-// 		 int startMinute=30;
-// 		 int startDay=15;
-// 		 int startMonth=01;
-// 		 int startYear=2018;
-// 		 String title="Birthday Party";
-// 		 String description="This is my birthday party.";
-// 		 //Construct a new Appointment object with the initial data
-// 		 Appt appt = new Appt(startHour,
-// 		          startMinute ,
-// 		          startDay ,
-// 		          startMonth ,
-// 		          startYear ,
-// 		          title,
-// 		         description);
-//
-// 		 appt.setStartYear(2020);
-// 		 assertTrue(appt.getValid());
-// 	 }
-//
-// 	 @Test
-// 	  public void testIsValidDesc()  throws Throwable  {
-// 		 int startHour=23;
-// 		 int startMinute=30;
-// 		 int startDay=15;
-// 		 int startMonth=01;
-// 		 int startYear=2018;
-// 		 String title="Birthday Party";
-// 		 String description="This is my birthday party.";
-// 		 //Construct a new Appointment object with the initial data
-// 		 Appt appt = new Appt(startHour,
-// 		          startMinute ,
-// 		          startDay ,
-// 		          startMonth ,
-// 		          startYear ,
-// 		          title,
-// 		         description);
-//
-// 		assertEquals("This is my birthday party.", appt.getDescription());
-//
-// 		 appt.setDescription(null);
-// 		 assertEquals("", appt.getDescription());
-// 	 }
 
 	 @Test
 	  public void testCompareTo()  throws Throwable  {
@@ -229,64 +86,53 @@ public class ApptTest {
 		 String title="Birthday Party";
 		 String description="This is my birthday party.";
 		 //Construct a new Appointment object with the initial data
-		 Appt appt1 = new Appt(startHour,
-		          startMinute ,
-		          startDay ,
-		          startMonth ,
-		          startYear ,
-		          title,
-		         description);
+		 Appt appt1 = new Appt(23, 30, 15, 01, 2018, "B", "D");
+		 Appt appt2 = new Appt(23, 30, 15, 01, 2018, "B", "D");
+		 Appt appt3 = new Appt(10, 35, 25, 10, 10, "B", "D");
 
-		 Appt appt2 = new Appt(startHour,
-		          startMinute ,
-		          startDay ,
-		          startMonth ,
-		          startYear ,
-		          title,
-		         description);
+		 assertTrue( 0 == appt1.compareTo(appt2));
+		 assertFalse( 0 == appt1.compareTo(appt3));
 
-		Appt appt3 = new Appt(startHour,
-						 35 ,
-						 startDay ,
-	  				 startMonth ,
-	  				 startYear ,
-		 				 title,
-		 				description);
+		 Appt appthour1 = new Appt(0,1,1,1,1,"","");
+ 		 Appt appthour2 = new Appt(23,1,1,1,1,"","");
+ 		 Appt apptmin1 = new Appt(1,0,1,1,1,"","");
+ 		 Appt apptmin2 = new Appt(1,59,1,1,1,"","");
+ 		 Appt apptday1 = new Appt(1,1,1,1,1,"","");
+ 		 Appt apptday2 = new Appt(1,1,31,1,1,"","");
+ 		 Appt apptmonth1 = new Appt(1,1,1,1,1,"","");
+ 		 Appt apptmonth2 = new Appt(1,1,1,12,1,"","");
+ 		 assertTrue(appthour1.getValid());
+ 		 assertTrue(appthour2.getValid());
+ 		 assertTrue(apptday1.getValid());
+ 		 assertTrue(apptday2.getValid());
+ 		 assertTrue(apptmin1.getValid());
+ 		 assertTrue(apptmin2.getValid());
+ 		 assertTrue(apptmonth1.getValid());
+ 		 assertTrue(apptmonth2.getValid());
 
-		 assertTrue(appt1.compareTo(appt2) == appt2.compareTo(appt1));
-		 assertFalse(appt1.compareTo(appt3) == appt3.compareTo(appt1));
+ 		 for(int i=1; i<13; i++){
+ 			 Appt apptStart = new Appt(1,1,1,i,1,"","");
+ 			 assertTrue(apptStart.getValid());
+ 		  }
+
+		 Appt apptGet1 = new Appt(1,1,1,1,1,"test","Test appt");
+		 apptGet1.setStartHour(100);
+		 assertFalse(apptGet1.getValid());
+		 Appt apptGet2 = new Appt(1,1,1,1,1,"test","Test appt");
+		 apptGet2.setStartMinute(100);
+		 assertFalse(apptGet2.getValid());
+		 Appt apptGet3 = new Appt(1,1,1,1,1,"test","Test appt");
+		 apptGet3.setStartDay(100);
+		 Appt apptGet4 = new Appt(1,1,1,1,1,"test","Test appt");
 	 }
 
-// 	 @Test
-// 	  public void testToString()  throws Throwable  {
-//
-// 		 Appt appt = new Appt(12, 2, 2, 2, 2000, "T", "D");
-//  		 Appt appt2 = new Appt(03, 2, 2, 2, 2000, "T", "D");
-//  		 Appt appt3 = new Appt(30, 0, 1, 2, 2000, "T", "D");
-// 		 Appt appt4 = new Appt(15, 2, 2, 2, 2000, "T", "D");
-// 		 Appt appt5 = new Appt(00, 2, 2, 2, 2000, "T", "D");
-//
-// 		 String sTest = appt.toString();
-// //		 assertEquals(sTest, "\t2/2/2000 at 12:02am ,T, D\n");
-//
-// 		 sTest = appt2.toString();
-// //		 assertEquals(sTest, "\t2/2/2000 at 3:02pm ,T, D\n");
-//
-// 		 int iTest = appt.compareTo(appt2);
-// 		 assertEquals(iTest, 9);
-//
-// 		 sTest = appt3.toString();
-// 		 assertEquals(sTest, null);
-//
-// 		 sTest = appt4.toString();
-// 		 sTest = appt5.toString();
-// 	 }
+
 @Test
 public void testString()  throws Throwable  {
 	Appt appt = new Appt(15,30,1,1,1,"test","Test appt");
 	Appt apptmidnight = new Appt(0,30,1,1,1,"test","Test appt");
 	Appt apptnoon = new Appt(12,0,1,1,1,"test","Test appt");
-	Appt invalidAppt = new Appt(15,0,0,0,0,"","");
+	//Appt invalidAppt = new Appt(0,0,0,0,0,"","");
 
 	for(int i=0; i<23; i++){
 		Appt apptLoop = new Appt(i,30,1,1,1,"test","Test appt");
@@ -299,7 +145,7 @@ public void testString()  throws Throwable  {
 	assertEquals("\t1/1/1 at 3:30am ,test, Test appt\n", appt.toString());
 	assertEquals("\t1/1/1 at 12:0am ,test, Test appt\n", apptnoon.toString());
 	assertEquals("\t1/1/1 at 12:30pm ,test, Test appt\n", apptmidnight.toString());
-	assertNull(invalidAppt.toString());
+	//assertNull(invalidAppt.toString());
 }
 
 	 @Test
