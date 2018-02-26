@@ -3,6 +3,7 @@ package calendar;
 import java.util.Calendar;
 import java.util.Random;
 import java.util.GregorianCalendar;
+import java.util.LinkedList;
 
 import org.junit.Test;
 
@@ -72,28 +73,73 @@ public class TimeTableRandomTest {
 				// System.out.println(" Seed:"+randomseed );
 				Random random = new Random(randomseed);
 
-				 Calendar rightnow = Calendar.getInstance();
-				 int thisMonth = rightnow.get(Calendar.MONTH)+1;
-				 int thisYear = rightnow.get(Calendar.YEAR);
-				 int thisDay = rightnow.get(Calendar.DAY_OF_MONTH);
-				 GregorianCalendar today = new GregorianCalendar(thisYear,thisMonth,thisDay);
-				 CalDay cal = new CalDay(today);
 
-				 for (int i = 0; i < NUM_TESTS; i++) {
-				 		int startHour=ValuesGenerator.RandInt(random);
-				 		int startMinute=ValuesGenerator.RandInt(random);
-				 		int startDay=ValuesGenerator.RandInt(random);
+				 GregorianCalendar first = new GregorianCalendar(0,1,1);
+				 CalDay cal = new CalDay(first);
+				 LinkedList<Appt> deletedAppt = new LinkedList<Appt>();
+				 TimeTable table = new TimeTable();
+
+				 int startHour2=ValuesGenerator.RandInt(random);
+				 int startMinute2=ValuesGenerator.RandInt(random);
+				 int startDay2=ValuesGenerator.RandInt(random);
+				 int startMonth2=ValuesGenerator.getRandomIntBetween(random, 1, 11);
+				 int startYear2=ValuesGenerator.RandInt(random);
+				 String title2=ValuesGenerator.getString(random);
+				 String description2=ValuesGenerator.getString(random);
+
+				 //Construct 2 new Appointment objects with the initial data
+				 Appt appt = new Appt(startHour2, startMinute2, startDay2, startMonth2, startYear2, title2,  description2);
+
+				 int numOfAppt = ValuesGenerator.getRandomIntBetween(random, 0, 500);
+				 int k = 1;
+				 for (k = 1; k < numOfAppt; k++) {
+
+					if (k != 1){
+				 		int startHour=ValuesGenerator.getRandomIntBetween(random, 0, 23);
+				 		int startMinute=ValuesGenerator.getRandomIntBetween(random, 0, 59);
+				 		int startDay=ValuesGenerator.getRandomIntBetween(random, 1, 28);
 				 		int startMonth=ValuesGenerator.getRandomIntBetween(random, 1, 11);
-				 		int startYear=ValuesGenerator.RandInt(random);
+				 		int startYear=ValuesGenerator.getRandomIntBetween(random, 1, 100);
 				 		String title=ValuesGenerator.getString(random);
 				 		String description=ValuesGenerator.getString(random);
 
-				 //Construct 2 new Appointment objects with the initial data
-				 		Appt appt = new Appt(startHour, startMinute, startDay, startMonth, startYear, title,  description);
-						
-					 cal.addAppt(appt);
-					 assertTrue(cal.getSizeAppts() == (i + 1));
+				    //Construct 2 new Appointment objects with the initial data
+				 		appt.setStartHour(startHour);
+						appt.setStartMinute(startMinute);
+						appt.setStartDay(startDay);
+						appt.setStartMonth(startMonth);
+						appt.setStartYear(startYear);
+						appt.setTitle(title);
+						appt.setDescription(description);
+
+					  cal.addAppt(appt);
+					} else {
+						int j = ValuesGenerator.getRandomIntBetween(random, 0, 1);
+						if(j == 0){
+							table.deleteAppt(null, appt);
+						} else {
+							table.deleteAppt(cal.getAppts(), null);
+						}
+					}
 				 }
+				 assertTrue(deletedAppt.isEmpty());
+				 deletedAppt = table.deleteAppt(cal.getAppts(),appt);
+				 assertFalse(deletedAppt.isEmpty());
+
+				 		appt.setStartHour(startHour2);
+				 		appt.setStartMinute(startMinute2);
+				 		appt.setStartDay(startDay2);
+				 		appt.setStartMonth(startMonth2);
+				 		appt.setStartYear(570);
+				 		appt.setTitle(title2);
+				 		appt.setDescription(description2);
+
+				 table.deleteAppt(cal.getAppts(), appt);
+
+				 GregorianCalendar second = new GregorianCalendar(500,1,1);
+				 CalDay cal2 = new CalDay(second);
+
+				 LinkedList<CalDay> CalList= table.getApptRange(cal.getAppts(), first, second);
 
 				 elapsed = (Calendar.getInstance().getTimeInMillis() - startTime);
 			        if((iteration%10000)==0 && iteration!=0 )

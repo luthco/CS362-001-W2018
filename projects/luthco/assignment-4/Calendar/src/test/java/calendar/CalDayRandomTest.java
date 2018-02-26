@@ -78,6 +78,8 @@ public class CalDayRandomTest {
 				 GregorianCalendar today = new GregorianCalendar(thisYear,thisMonth,thisDay);
 				 CalDay cal = new CalDay(today);
 
+				 int j = 0;
+
 				 for (int i = 0; i < NUM_TESTS; i++) {
 				 		int startHour=ValuesGenerator.RandInt(random);
 				 		int startMinute=ValuesGenerator.RandInt(random);
@@ -89,9 +91,13 @@ public class CalDayRandomTest {
 
 				 //Construct 2 new Appointment objects with the initial data
 				 		Appt appt = new Appt(startHour, startMinute, startDay, startMonth, startYear, title,  description);
-
-					 cal.addAppt(appt);
+						if(appt.getValid()){
+							j++;
+					 		cal.addAppt(appt);
+						}
 				 }
+
+				 assertTrue(cal.getSizeAppts() == j);
 
 				 elapsed = (Calendar.getInstance().getTimeInMillis() - startTime);
 			        if((iteration%10000)==0 && iteration!=0 )
