@@ -90,16 +90,16 @@ public class TimeTableRandomTest {
 				 //Construct 2 new Appointment objects with the initial data
 				 Appt appt = new Appt(startHour2, startMinute2, startDay2, startMonth2, startYear2, title2,  description2);
 
-				 int numOfAppt = ValuesGenerator.getRandomIntBetween(random, 0, 500);
+				 int numOfAppt = ValuesGenerator.getRandomIntBetween(random, 0, 1000);
 				 int k = 1;
 				 for (k = 1; k < numOfAppt; k++) {
 
 					if (k != 1){
-				 		int startHour=ValuesGenerator.getRandomIntBetween(random, 0, 23);
-				 		int startMinute=ValuesGenerator.getRandomIntBetween(random, 0, 59);
-				 		int startDay=ValuesGenerator.getRandomIntBetween(random, 1, 28);
+				 		int startHour=ValuesGenerator.RandInt(random);
+				 		int startMinute=ValuesGenerator.RandInt(random);
+				 		int startDay=ValuesGenerator.RandInt(random);
 				 		int startMonth=ValuesGenerator.getRandomIntBetween(random, 1, 11);
-				 		int startYear=ValuesGenerator.getRandomIntBetween(random, 1, 100);
+				 		int startYear=ValuesGenerator.RandInt(random);
 				 		String title=ValuesGenerator.getString(random);
 				 		String description=ValuesGenerator.getString(random);
 
@@ -139,7 +139,7 @@ public class TimeTableRandomTest {
 				 GregorianCalendar second = new GregorianCalendar(500,1,1);
 				 CalDay cal2 = new CalDay(second);
 
-				 LinkedList<CalDay> CalList= table.getApptRange(cal.getAppts(), first, second);
+				 LinkedList<CalDay> CalList = table.getApptRange(cal.getAppts(), first, second);
 
 				 elapsed = (Calendar.getInstance().getTimeInMillis() - startTime);
 			        if((iteration%10000)==0 && iteration!=0 )

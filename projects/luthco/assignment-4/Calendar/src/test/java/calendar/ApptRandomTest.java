@@ -84,13 +84,13 @@ public class ApptRandomTest {
 				 Appt appt = new Appt(startHour, startMinute, startDay, startMonth, startYear, title,  description);
 				 Appt appt2 = new Appt(startHour2, startMinute2, startDay2, startMonth2, startYear2, title2,  description2);
 
-				 appt.setStartHour(appt2.getStartHour());
-				 appt.setStartDay(appt2.getStartDay());
-				 appt.setStartYear(appt2.getStartYear());
-				 appt.setStartMonth(appt2.getStartMonth());
-				 appt.setStartMinute(appt2.getStartMinute());
-				 appt.setTitle(appt2.getTitle());
-				 appt.setDescription(appt2.getDescription());
+				 appt.setStartHour(startHour2);
+				 appt.setStartDay(startDay2);
+				 appt.setStartYear(startYear2);
+				 appt.setStartMonth(startMonth2);
+				 appt.setStartMinute(startMinute2);
+				 appt.setTitle(title2);
+				 appt.setDescription(description2);
 
 			 if(!appt.getValid() || !appt2.getValid())continue;
 			for (int i = 0; i < NUM_TESTS; i++) {
