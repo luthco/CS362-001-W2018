@@ -1,0 +1,33 @@
+Bug Report #1 - "Febuary Date Length"
+
+This bug allows the month of Febuary to contain 29 days every occurance.  This is not possible,
+as the maximum amount of days that the month of Febuary is aloud to have to 28 days (unless a 
+leap year).  This bug is located on line 16 in the CalendarUtil.java file.
+
+Section of Code:
+	public static int DaysInMonth[] = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+To recreate the bug, simply create a calendar event on Feburay 29th (The second value).  The 
+Calendar program will allow this, even though it should not be possible.
+
+In order to fix this bug, simply fix the upper boundary for the month of Febuary in the 
+DaysInMonth array on line 16 in the CalendarUtil.java file.
+
+
+
+Bug Report #2 - "Not showing first appointment for the day"
+
+This bug prevents the first appointment from being displayed when using getApptRange.  This bug
+is located on line 53 in the TimeTable.java file.
+
+Section of Code:
+	for (int i = 1; i < appts.size(); i++) { ...
+
+To recreate this bug, simply add an apointment to the calendar.  Then use getApptRange to check 
+for the appointment between the times in which the appointment was set.  You will see that no
+appointments will be displayed.  If you add more appointments however, those will be displayed 
+if you repeat the process again.
+
+In order to fix this bug, you must set the lower boundary of the for loop shown above on line 53
+to "int i = 0" instead of "int i = 1".  Once this boundary issue is fixed, this bug should be 
+fixed.
