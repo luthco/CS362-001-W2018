@@ -39,6 +39,10 @@ public class UrlValidatorTest extends TestCase {
         assertFalse(url.isValid("http://www.google.com/..//file"));
         assertFalse(url.isValid("256.256.256.256"));
         assertFalse(url.isValid("http:www.google.com"));
+
+        String schemes2[] = {"http", "https"};
+        UrlValidator url2 = new UrlValidator(schemes2,null,UrlValidator.NO_FRAGMENTS);
+        //assertTrue(url2.isValid("http://www.google.com/"));
    }
 
    public void testPartition()
